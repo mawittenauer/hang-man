@@ -38,7 +38,7 @@ while ANSWER_ARRAY != player_answer
     puts " You have #{guesses_left} guesses left"
   end
   
-  if guesses_left < 0
+  if guesses_left < 1
     puts "You ran out of guesses, you lose"
     break
   end

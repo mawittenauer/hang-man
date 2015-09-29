@@ -14,8 +14,9 @@ ANSWER_ARRAY.each do |n|
   end
 end
 
-puts "An underscore indicates a letter and a dash indicates a space"
-p player_answer
+system "clear"
+puts "Below is the empty phrase. You have ten guesses, good luck!"
+p player_answer.join
 
 while ANSWER_ARRAY != player_answer
   print "Enter your guess here: "
@@ -29,12 +30,12 @@ while ANSWER_ARRAY != player_answer
       end
     end
     puts "Here is what you have so far"
-    print player_answer
+    print player_answer.join
     puts " You have #{guesses_left} guesses left"
   else
     guesses_left -= 1
     puts "That is an incorrect guess, here is what you have so far"
-    print player_answer
+    print player_answer.join
     puts " You have #{guesses_left} guesses left"
   end
   
@@ -43,4 +44,11 @@ while ANSWER_ARRAY != player_answer
     break
   end
 end
+
+
+
+
+
+
+
 

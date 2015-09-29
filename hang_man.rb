@@ -1,3 +1,4 @@
+system "clear"
 print "What would you like the player to guess? "
 
 ANSWER = gets.chomp.downcase
@@ -6,6 +7,13 @@ ANSWER_ARRAY = ANSWER.split("")
 guesses_left = 10
 player_answer = []
 guesses = []
+
+def letter_guesses_left(answer, guesses, guesses_left)
+  puts answer.join
+  puts "Here are the letters you have guessed so far: #{guesses.join(',')}"
+  puts "You have #{guesses_left} guesses left"
+  puts "-" * 60
+end
 
 ANSWER_ARRAY.each do |n|
   if n == " "
@@ -36,22 +44,17 @@ while ANSWER_ARRAY != player_answer
   end
   
   if ANSWER_ARRAY.include?(guess)
-    puts "That is a correct guess"
     ANSWER_ARRAY.each_with_index do |value, index|
       if ANSWER_ARRAY[index] == guess
         player_answer[index] = guess
       end
     end
-    puts "Here is what you have so far"
-    puts player_answer.join
-    puts "Here are the letters you have guessed so far: #{guesses.join(',')}"
-    puts "You have #{guesses_left} guesses left"
+    puts "That is a correct guess! Here is what you have so far"
+    letter_guesses_left(player_answer, guesses, guesses_left)
   else
     guesses_left -= 1
     puts "That is an incorrect guess, here is what you have so far"
-    puts player_answer.join
-    puts "Here are the letters you have guessed so far: #{guesses.join(',')}"
-    puts "You have #{guesses_left} guesses left"
+    letter_guesses_left(player_answer, guesses, guesses_left)
   end
   
   if guesses_left < 1

@@ -16,11 +16,7 @@ def letter_guesses_left(answer, guesses, guesses_left)
 end
 
 ANSWER_ARRAY.each do |n|
-  if n == " "
-    player_answer << " "
-  else
-    player_answer << "_"
-  end
+  n == " " ? player_answer << " " : player_answer << "_"
 end
 
 system "clear"
@@ -34,9 +30,9 @@ while ANSWER_ARRAY != player_answer
     guess = gets.chomp
     case
     when guess.length > 1
-      puts "You can only type one letter, please enter a correct guess"
+      print "You can only type one letter, please enter a correct guess: "
     when guesses.include?(guess)
-      puts "You already guessed that letter, enter one you have not guessed: "
+      print "You already guessed that letter, enter one you have not guessed: "
     else
       guesses << guess
       break
